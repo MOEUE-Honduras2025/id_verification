@@ -1,28 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Estado</title>
-    <style>
-        body {
-            text-align: center;
-            padding-top: 100px;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            color: green;
-            font-size: 3em;
-        }
-        img {
-            display: block;
-            margin: 20px auto 0;
-            max-width: 100px; /* ajusta este valor según lo grande que quieras la imagen */
-            height: auto;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Estado / Agenda Telefónica</title>
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #e3f2ff 0%, #f4fff3 100%);
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:40px 16px;
+      box-sizing:border-box;
+    }
+
+    .card{
+      width:100%;
+      max-width:420px;
+      background: rgba(255,255,255,0.95);
+      border-radius:16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding:28px;
+      text-align:center;
+    }
+
+    h1{
+      margin:0 0 8px;
+      color: #14843a;
+      font-size:1.9rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .flag{
+      width:48px;
+      height:auto;
+      border-radius:8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    p.subtitle{
+      margin:6px 0 18px;
+      color:#444;
+      font-size:0.95rem;
+    }
+
+    .phone-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .phone-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+      border:1px solid rgba(0,0,0,0.05);
+      padding:12px 14px;
+      border-radius:12px;
+    }
+
+    .phone-link{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#0b3b2e;
+      width:100%;
+      font-size:1.05rem;
+      font-weight:600;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .phone-meta{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:center;
+      flex:1;
+      min-width:0;
+    }
+
+    .label{
+      font-size:0.88rem;
+      color:#666;
+      font-weight:500;
+    }
+
+    .number{
+      font-size:1.05rem;
+      color:#0b3b2e;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .call-btn{
+      background: linear-gradient(180deg,#13a34a,#0e8b3a);
+      color:white;
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:0.95rem;
+      font-weight:700;
+      border:none;
+      box-shadow: 0 6px 12px rgba(14,139,58,0.18);
+    }
+
+    .icon{
+      width:44px;
+      height:44px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background: linear-gradient(180deg,#f5f8ff,#eef7f0);
+      border:1px solid rgba(0,0,0,0.04);
+      flex-shrink:0;
+    }
+
+    footer{
+      margin-top:18px;
+      font-size:0.8rem;
+      color:#777;
+    }
+
+    @media (max-width:420px){
+      .card{ padding:20px; border-radius:12px; }
+      h1{ font-size:1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1>✅ ID VERIFICADO</h1>
-    <img src="ueflag.jpg" alt="Bandera de la UE">
+  <div class="card" role="main">
+    <h1>
+      <img src="ueflag.jpg" alt="Bandera UE" class="flag" />
+      ✅ ID VERIFICADO
+    </h1>
+    <p class="subtitle">Toca un contacto para llamar directamente desde tu teléfono.</p>
+
+    <ul class="phone-list" aria-label="Agenda Telefónica">
+
+      <li class="phone-item">
+        <a class="phone-link" href="tel:+50489555845">
+          <span class="icon" aria-hidden="true">
+            📞
+          </span>
+          <span class="phone-meta">
+            <span class="label">SOC</span>
+            <span class="number">+504 8955 5845</span>
+          </span>
+          <button class="call-btn">Llamar</button>
+        </a>
+      </li>
+
+      <li class="phone-item">
+        <a class="phone-link" href="tel:+881652464124">
+          <span class="icon" aria-hidden="true">📞</span>
+          <span class="phone-meta">
+            <span class="label">SOC Satelital</span>
+            <span class="number">+881 6524 64124</span>
+          </span>
+          <button class="call-btn">Llamar</button>
+        </a>
+      </li>
+
+      <li class="phone-item">
+        <a class="phone-link" href="tel:+50489434616">
+          <span class="icon" aria-hidden="true">📞</span>
+          <span class="phone-meta">
+            <span class="label">Seguridad Pierre-Yves ARNAUD</span>
+            <span class="number">+504 8943 4616</span>
+          </span>
+          <button class="call-btn">Llamar</button>
+        </a>
+      </li>
+
+      <li class="phone-item">
+        <a class="phone-link" href="tel:+50489365702">
+          <span class="icon" aria-hidden="true">📞</span>
+          <span class="phone-meta">
+            <span class="label">Adjunto de Seguridad Pedro PIRES DA SILVA</span>
+            <span class="number">+504 8936 5702</span>
+          </span>
+          <button class="call-btn">Llamar</button>
+        </a>
+      </li>
+
+      <li class="phone-item">
+        <a class="phone-link" href="tel:+50489368008">
+          <span class="icon" aria-hidden="true">📞</span>
+          <span class="phone-meta">
+            <span class="label">Dr. Mauricio OYUELA</span>
+            <span class="number">+504 8936 8008</span>
+          </span>
+          <button class="call-btn">Llamar</button>
+        </a>
+      </li>
+
+      <li class="phone-item">
+        <a class="phone-link" href="tel:+50489559666">
+          <span class="icon" aria-hidden="true">📞</span>
+          <span class="phone-meta">
+            <span class="label">Psicóloga Paola MAYER</span>
+            <span class="number">+504 8955 9666</span>
+          </span>
+          <button class="call-btn">Llamar</button>
+        </a>
+      </li>
+
+    </ul>
+
+    <footer>
+      <small>Consejo: toca el número para iniciar la llamada. Compatible con móviles Android, iPhone y tablets con línea activa.</small>
+    </footer>
+  </div>
 </body>
 </html>
